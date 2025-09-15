@@ -1,0 +1,7 @@
+//Menjalankan Unit Test
+// go test 
+	// =>hanya menampilkan hasil test nya saja
+// go test -v
+	//manampilkan test dan Function Unit Test yang di jalankan
+//go test -v -run=NamaFunctionTest
+	//menjalankan function untit test tertentu
