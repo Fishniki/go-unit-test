@@ -1,7 +1,22 @@
-//Menjalankan Unit Test
-// go test 
-	// =>hanya menampilkan hasil test nya saja
-// go test -v
-	//manampilkan test dan Function Unit Test yang di jalankan
-//go test -v -run=NamaFunctionTest
-	//menjalankan function untit test tertentu
+👌Menjalankan Unit Test
+✔ go test 
+=> hanya menampilkan hasil test nya saja
+
+✔ go test -v
+=> manampilkan test dan Function Unit Test yang di jalankan
+
+✔ go test -v -run=NamaFunctionTest
+	//menjalankan function untit test 
+	
+
+👌Menjalankan Bencmark
+✔ go test -v -bench=.
+=> menjalankan unit test nya dan function nya
+
+✔ go test -v -run=NotMathUnitTest -bench=.
+=> menjalankan Bencmark tanpa Menjalankan unit test
+
+✔ go test -v run=NotMathUnitTest -bench=NamaBencmark
+=> menjalankan benchmark tertentu
+
+✔ go test -v -bench=. ./...

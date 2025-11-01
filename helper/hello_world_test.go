@@ -9,6 +9,23 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func BenchmarkHelloWorld(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        HelloWorld("Niki")
+    }
+}
+
+
+func BenchmarkHellWordHamdani(b *testing.B) {
+	for i := 0; i < b.N; i++{
+		HelloWorld("Hamdani")
+	}
+}
+
+
+
+
+
 
 func TestMain(m *testing.M) {
 	// Seperti Layout Pada Component
@@ -18,6 +35,38 @@ func TestMain(m *testing.M) {
 	m.Run()
 	fmt.Println("Setelah unit test")
 }
+
+func TestHelloWordTable(t *testing.T) {
+	test := []struct{
+		name string
+		request string
+		expected string
+	}{
+		{
+			name: "Hello(Niki)",
+			request: "Niki",
+			expected: "Hello Niki",
+		},
+		{
+			name: "Hello(Ahmad)",
+			request: "Ahmad",
+			expected: "Hello Ahmad",
+		},
+		{
+			name: "Hello(Hamdani)",
+			request: "Hamdani",
+			expected: "Hello Hamdani",
+		},
+	}
+
+	for _, val := range test {
+		t.Run(val.name, func(t *testing.T) {
+			result := HelloWorld(val.request)
+			assert.Equal(t, val.expected, result)
+		})
+	}
+}
+
 
 func TestSubTest(t *testing.T) {
 	t.Run("Niki", func(t *testing.T) {
@@ -35,7 +84,7 @@ func TestSubTest(t *testing.T) {
 
 func TestSkip(t *testing.T) {
 	if runtime.GOOS == "windows"{
-		t.Skip("Can not run on Windows OSbu6j7v")
+		t.Skip("Can not run on Windows")
 	}
 	result := HelloWorld("Niki")
 	assert.Equal(t, "Hello Niki", result, "Harusnya menampilkan Hello Niki")

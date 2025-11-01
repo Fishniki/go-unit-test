@@ -1,0 +1,22 @@
+package repository
+
+import (
+	"go-unit-test/entity"
+
+	"github.com/stretchr/testify/mock"
+)
+
+type CategoryRepositryMock struct {
+	Mock mock.Mock
+}
+
+func (repository *CategoryRepositryMock) FindById(id string) *entity.Category {
+	argument := repository.Mock.Called(id)
+	if argument.Get(0) == nil {
+		return  nil
+	}else{
+		category := argument.Get(0).(entity.Category)
+		return  &category
+	}
+
+}
